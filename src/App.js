@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import "./App.css";
+import ListOfGifs from './Components/ListOfGifs'
 
-function App() {
+export default function App() {
+  const [keyword, setKeyword] = useState(['Power+rangers'])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Consiguiendo usar React </p>
+        <h4>APP Buscador de GIFS con API</h4>
+        <button onClick={() => setKeyword('Freezer+golden') }>CAMBIAR STADO</button>
+        <ListOfGifs keyword={keyword}/>
       </header>
     </div>
   );
 }
-
-export default App;
