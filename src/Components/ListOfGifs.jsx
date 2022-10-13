@@ -2,16 +2,23 @@ import Gifs from "./Gifs";
 import { useEffect, useState } from 'react'
 import getGifs from '../Services/API_URL'
 
-export default function ListOfGifs({keyword}) {
+export default function ListOfGifs({params}) {
 
+   const { keyword } = params;
    const [gifs, setGifs] = useState([]);
 
    useEffect(function () {
       getGifs({ keyword })
          .then((gifs) => setGifs(gifs));
-   }, [keyword]); //eslint-disable-line
+   }, [keyword]);
 
-   return gifs.map(({ id, title, url }) => {
-      return <Gifs key={id} id={id} title={title} url={url} />;
-   });
+   return <div> 
+      { gifs.map(({ id, title, url }) =>  
+      <Gifs 
+         key={id} 
+         id={id} 
+         title={title} 
+         url={url} />  
+      )}
+      </div>
 }
