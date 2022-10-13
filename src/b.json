@@ -24,7 +24,7 @@ BLUE-OWL
            "background": "#01579B",
            "foreground": "#ffffff",
            "leading_diamond": "<transparent,#01579B>\ue0b0</>",
-           "properties": {
+           "properties": {s
              "folder_icon": "\uf6d7",
              "folder_separator_icon": "<transparent> \ue0bd </>",
              "home_icon": "\uf7db",
