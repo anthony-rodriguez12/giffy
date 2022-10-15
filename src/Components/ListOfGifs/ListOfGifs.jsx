@@ -1,6 +1,6 @@
-import Gifs from "./Gifs";
+import Gifs from "../Gif/Gifs";
 import { useEffect, useState } from 'react'
-import getGifs from '../Services/API_URL'
+import getGifs from '../../Services/API_URL'
 
 export default function ListOfGifs({params}) {
 
