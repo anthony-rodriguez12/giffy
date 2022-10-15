@@ -1,24 +1,26 @@
-import Gifs from "./Gif/Gifs";
-import { useEffect, useState } from 'react'
-import getGifs from '../Services/API_URL'
+import {useEffect, useState} from 'react'
+import Spinner from '../../Components/Spinner'
+import ListOfGifs from '../../Components/ListOfGifs'
+import getGifs from '../../Services/API_URL'
 
-export default function SearchResults({params}) {
+export default function SearchResults ({ params }) {
+const { keyword } = params
+const [loading, setLoading] = useState(false)
+const [gifs, setGifs] = useState([])
 
-   const { keyword } = params;
-   const [gifs, setGifs] = useState([]);
+useEffect(function () {
+   setLoading(true)
+   getGifs({ keyword })
+   .then(gifs => {
+      setGifs(gifs)
+      setLoading(false)
+   })
+}, [keyword])
 
-   useEffect(function () {
-      getGifs({ keyword })
-         .then((gifs) => setGifs(gifs));
-   }, [keyword]);
-
-   return <div> 
-      { gifs.map(({ id, title, url }) =>  
-      <Gifs 
-         key={id} 
-         id={id} 
-         title={title} 
-         url={url} />  
-      )}
-      </div>
+return <>
+   {loading
+   ? <Spinner />
+   : <ListOfGifs gifs={gifs} />
+   }
+</>
 }

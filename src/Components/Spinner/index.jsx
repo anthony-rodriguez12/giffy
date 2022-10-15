@@ -1,8 +1,5 @@
-export default function Spinner() {
-   return <div className="lds-rings">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-   </div>
+import './styles.css'
+
+export default function Spinner () {
+  return <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
 }
