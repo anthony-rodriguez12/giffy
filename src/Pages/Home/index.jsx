@@ -1,19 +1,17 @@
-import { useState } from "react"
-import { Link, useLocation } from "wouter"
-import ListOfGifs from '../../Components/ListOfGifs'
-import {useGifs} from '../../hooks/useGifs'
-
-const POPULAR_GIFS = ["Goku","Vegeta","Gohan","Vegito","Gogeta","Trunks"]
+import React, {useState} from "react"
+import { useLocation } from "wouter"
+import ListOfGifs from 'Components/ListOfGifs'
+import {useGifs} from 'Hooks/useGifs'
+import TrendingSearches from 'Components/TrendingSearches'
 
 export default function Home() {
-   const [keyword,setKeyword] = useState('')
-   const [path,pushLocation] = useLocation()
+   const [keyword, setKeyword] = useState('')
+   const [path, pushLocation] = useLocation() 
+   const {loading, gifs} = useGifs()
 
-   const { loading, gifs } = useGifs() //CustomHook useGifs
-
-   const handleSubmit = evt => {      
-      console.log(keyword)
+   const handleSubmit = evt => {
       evt.preventDefault()
+      // navegar a otra ruta
       pushLocation(`/search/${keyword}`)
    }
 
@@ -23,19 +21,19 @@ export default function Home() {
 
    return (
       <>
-         <form onSubmit={handleSubmit}>
-            <input onChange={handleChange} type="text" id="" value={keyword} placeholder="Busca tus Gifs aqui..."/>
-         </form>
-         <h3 className="App-title">Ultima Busqueda</h3>
-         <ListOfGifs gifs={gifs}/>
-         <h3 className="App-title">Los gifs más populares</h3>
-         <ul>
-         {POPULAR_GIFS.map((popularGif) => (
-            <li key={popularGif}>
-               <Link to={`/search/${popularGif}`}>Gifs de {popularGif}</Link>
-            </li>
-         ))}
-         </ul>
+      <form onSubmit={handleSubmit}>
+         <button>Buscar</button>
+         <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword} />
+      </form>
+      <div className="App-main">
+         <div className="App-results">
+            <h3 className="App-title">Última búsqueda</h3>
+            <ListOfGifs gifs={gifs} />
+         </div>
+         <div className="App-category">
+            <TrendingSearches />
+         </div>
+      </div>
       </>
    )
 }

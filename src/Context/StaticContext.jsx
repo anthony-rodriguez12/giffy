@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Context = React.createContext({
-   name: 'miduDev',
-   suscribeteAlCanal: true
+  name: 'esto-es-sin-provider',
+  suscribeteAlCanal: true
 })
 
-export default Context 
+export default Context
