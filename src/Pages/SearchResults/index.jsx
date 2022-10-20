@@ -1,7 +1,7 @@
 import React from 'react'
-import Spinner from 'Components/Spinner'
-import ListOfGifs from 'Components/ListOfGifs'
-import {useGifs} from 'Hooks/useGifs'
+import Spinner from '../../Components/Spinner'
+import ListOfGifs from '../../Components/ListOfGifs'
+import {useGifs} from '../../Hooks/useGifs'
 
 export default function SearchResults ({ params }) {
    const { keyword } = params

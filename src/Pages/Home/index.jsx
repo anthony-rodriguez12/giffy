@@ -1,8 +1,8 @@
 import React, {useState} from "react"
 import { useLocation } from "wouter"
-import ListOfGifs from 'Components/ListOfGifs'
-import {useGifs} from 'Hooks/useGifs'
-import TrendingSearches from 'Components/TrendingSearches'
+import ListOfGifs from '../../Components/ListOfGifs'
+import {useGifs} from '../../Hooks/useGifs'
+import TrendingSearches from '../../Components/TrendingSearches'
 
 export default function Home() {
    const [keyword, setKeyword] = useState('')
