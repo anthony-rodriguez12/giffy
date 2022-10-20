@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "intersection-observer": "^0.12.2",
     "react": "18.3.0-next-f0efa1164-20220901",
     "react-dom": "18.3.0-next-f0efa1164-20220901",
     "react-scripts": "5.1.0-next.14",
